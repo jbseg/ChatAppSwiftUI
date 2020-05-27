@@ -17,7 +17,7 @@ class DataFire : ObservableObject {
         
         let db = Firestore.firestore()
         
-        db.collection("chat").addSnapshotListener { (snap, err) in
+        db.collection("chat2").addSnapshotListener { (snap, err) in
             if err != nil {
                 print((err?.localizedDescription)!)
                 return
@@ -38,7 +38,7 @@ class DataFire : ObservableObject {
     func addInfo(msg: String, user: String, image: Data) {
         let db = Firestore.firestore()
         
-        db.collection("chat").addDocument(data: ["msg": msg, "name": user, "image": image]) { (err) in
+        db.collection("chat2").document("settingdoc").setData(["msg": msg, "name": user, "time": FieldValue.serverTimestamp()]) { (err) in
             
             if err != nil {
                 print((err?.localizedDescription)!)

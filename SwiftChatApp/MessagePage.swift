@@ -20,9 +20,9 @@ struct Messagepage: View {
         VStack {
             List(message.chat) { i in
                 if i.name == self.name {
-                    ListMessage(msg: i.msg, Message: true, user: i.name, image: i.$image)
+                    ListMessage(msg: i.msg, Message: true, user: i.name)
                 } else {
-                    ListMessage(msg: i.msg, Message: false, user: i.name, image: i.$image)
+                    ListMessage(msg: i.msg, Message: false, user: i.name)
                 }
                 
             }.navigationBarTitle("Chats", displayMode: .inline)

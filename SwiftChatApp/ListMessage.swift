@@ -16,7 +16,7 @@ struct ListMessage : View {
     var Message = false
     var user = ""
     
-    @Binding var image : Data
+//    @Binding var image : Data
     var body: some View {
          
         HStack {
@@ -24,6 +24,7 @@ struct ListMessage : View {
                 Spacer()
                 
                 HStack {
+                Text(user)
                 Text(msg).padding(10).background(Color.secondary)
                 .cornerRadius(18)
                     .foregroundColor(.white)
@@ -48,5 +49,11 @@ struct ListMessage : View {
                 Spacer()
             }
         }
+    }
+}
+
+struct ListMessage_Previews: PreviewProvider {
+    static var previews: some View {
+        ListMessage(msg: "hello", Message: false, user: "josh")
     }
 }
